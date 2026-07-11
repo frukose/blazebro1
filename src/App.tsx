@@ -372,6 +372,24 @@ export default function App() {
   };
 
   // Product management operations (API-backed)
+  const startNewProduct = () => {
+    setEditingProduct({
+      code: '',
+      name: '',
+      category: 'PANTS',
+      price: 0,
+      stock: 5,
+      sizes: ['S', 'M', 'L'],
+      description: '',
+      specs: [],
+      image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=600'
+    });
+  };
+
+  const startEditProduct = (product: Product) => {
+    setEditingProduct(product);
+  };
+
   const saveProduct = async (e: FormEvent) => {
     e.preventDefault();
     if (!editingProduct || !editingProduct.code || !editingProduct.name) return;
@@ -971,6 +989,235 @@ export default function App() {
               )}
             </div>
 
+            {/* Product Registry Operations */}
+            <div className="border border-black/10 p-6 bg-white space-y-4 text-left">
+              <div className="flex justify-between items-center border-b border-black/10 pb-2">
+                <h3 className="text-xs font-bold text-black flex items-center gap-2">
+                  <Database size={14} /> PRODUCT REGISTRY OPERATIONS
+                </h3>
+                {editingProduct && (
+                  <button 
+                    onClick={() => {
+                      setEditingProduct(null);
+                      setNewSpecInput('');
+                    }}
+                    className="text-[9px] px-2.5 py-1 font-bold uppercase tracking-widest bg-zinc-100 text-zinc-600 hover:bg-zinc-200 cursor-pointer"
+                  >
+                    CANCEL EDIT / ADD NEW
+                  </button>
+                )}
+              </div>
+
+              {!editingProduct ? (
+                <div className="py-4 text-center">
+                  <button
+                    onClick={startNewProduct}
+                    className="bg-black text-white hover:bg-accent transition-colors px-8 py-3.5 text-[10px] uppercase font-bold tracking-widest cursor-pointer flex items-center gap-2 mx-auto"
+                    style={{ clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))' }}
+                  >
+                    <Plus size={12} />
+                    INITIALIZE NEW PRODUCT RECORD
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={saveProduct} className="space-y-4 pt-2">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {/* Name */}
+                    <div className="space-y-1">
+                      <label className="text-[8px] text-zinc-400 uppercase font-bold block">PRODUCT NAME</label>
+                      <input 
+                        required 
+                        type="text" 
+                        placeholder="e.g. CONSTRUCT CARGO PANTS"
+                        value={editingProduct.name || ''} 
+                        onChange={(e) => setEditingProduct({ ...editingProduct, name: e.target.value })}
+                        className="w-full bg-zinc-50 border border-black/10 px-3 py-2 text-xs outline-none focus:border-black/40 uppercase" 
+                      />
+                    </div>
+
+                    {/* Code */}
+                    <div className="space-y-1">
+                      <label className="text-[8px] text-zinc-400 uppercase font-bold block">PRODUCT CODE</label>
+                      <input 
+                        required 
+                        type="text" 
+                        placeholder="e.g. BLZ-05"
+                        value={editingProduct.code || ''} 
+                        onChange={(e) => setEditingProduct({ ...editingProduct, code: e.target.value.toUpperCase() })}
+                        className="w-full bg-zinc-50 border border-black/10 px-3 py-2 text-xs outline-none focus:border-black/40 uppercase" 
+                      />
+                    </div>
+
+                    {/* Category */}
+                    <div className="space-y-1">
+                      <label className="text-[8px] text-zinc-400 uppercase font-bold block">CATEGORY</label>
+                      <select 
+                        value={editingProduct.category || 'PANTS'} 
+                        onChange={(e) => setEditingProduct({ ...editingProduct, category: e.target.value })}
+                        className="w-full bg-zinc-50 border border-black/10 px-3 py-2 text-xs outline-none focus:border-black/40 uppercase"
+                      >
+                        <option value="PANTS">PANTS</option>
+                        <option value="BOOTS">BOOTS</option>
+                        <option value="JACKETS">JACKETS</option>
+                        <option value="OUTERWEAR">OUTERWEAR</option>
+                        <option value="TOPS">TOPS</option>
+                        <option value="ACCESSORIES">ACCESSORIES</option>
+                      </select>
+                    </div>
+
+                    {/* Price */}
+                    <div className="space-y-1">
+                      <label className="text-[8px] text-zinc-400 uppercase font-bold block">PRICE (₦)</label>
+                      <input 
+                        required 
+                        type="number" 
+                        min="0"
+                        placeholder="e.g. 45000"
+                        value={editingProduct.price !== undefined ? editingProduct.price : ''} 
+                        onChange={(e) => setEditingProduct({ ...editingProduct, price: Number(e.target.value) })}
+                        className="w-full bg-zinc-50 border border-black/10 px-3 py-2 text-xs outline-none focus:border-black/40 font-mono" 
+                      />
+                    </div>
+
+                    {/* Stock */}
+                    <div className="space-y-1">
+                      <label className="text-[8px] text-zinc-400 uppercase font-bold block">AVAILABLE STOCK</label>
+                      <input 
+                        required 
+                        type="number" 
+                        min="0"
+                        placeholder="e.g. 15"
+                        value={editingProduct.stock !== undefined ? editingProduct.stock : ''} 
+                        onChange={(e) => setEditingProduct({ ...editingProduct, stock: Number(e.target.value) })}
+                        className="w-full bg-zinc-50 border border-black/10 px-3 py-2 text-xs outline-none focus:border-black/40 font-mono" 
+                      />
+                    </div>
+
+                    {/* Image Link */}
+                    <div className="space-y-1">
+                      <label className="text-[8px] text-zinc-400 uppercase font-bold block">IMAGE SOURCE (URL or Asset key)</label>
+                      <input 
+                        required 
+                        type="text" 
+                        placeholder="e.g. https://images.unsplash.com/... or IMAGE_BLZ_01"
+                        value={editingProduct.image || ''} 
+                        onChange={(e) => setEditingProduct({ ...editingProduct, image: e.target.value })}
+                        className="w-full bg-zinc-50 border border-black/10 px-3 py-2 text-xs outline-none focus:border-black/40 font-mono" 
+                      />
+                    </div>
+                  </div>
+
+                  {/* Sizes selection */}
+                  <div className="space-y-1">
+                    <label className="text-[8px] text-zinc-400 uppercase font-bold block">AVAILABLE SIZES (Select all that apply)</label>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {['S', 'M', 'L', 'XL', 'OS'].map(size => {
+                        const selectedSizes = editingProduct.sizes || [];
+                        const isChecked = selectedSizes.includes(size);
+                        return (
+                          <button
+                            key={size}
+                            type="button"
+                            onClick={() => {
+                              const newSizes = isChecked 
+                                ? selectedSizes.filter(s => s !== size)
+                                : [...selectedSizes, size];
+                              setEditingProduct({ ...editingProduct, sizes: newSizes });
+                            }}
+                            className={`px-3 py-1.5 text-xs font-mono font-bold uppercase transition-all border ${isChecked ? 'bg-black text-white border-black' : 'bg-zinc-50 text-zinc-500 border-zinc-200 hover:border-black/30'}`}
+                          >
+                            [{size}]
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <div className="space-y-1">
+                    <label className="text-[8px] text-zinc-400 uppercase font-bold block">PRODUCT DESCRIPTION</label>
+                    <textarea 
+                      required 
+                      rows={2}
+                      placeholder="e.g. HIGH-DENSITY COTTON BRUTALIST CONSTRUCT WITH OVERSIZED DRAWCORDS AND REINFORCED STITCHING."
+                      value={editingProduct.description || ''} 
+                      onChange={(e) => setEditingProduct({ ...editingProduct, description: e.target.value })}
+                      className="w-full bg-zinc-50 border border-black/10 px-3 py-2 text-xs outline-none focus:border-black/40 uppercase resize-none font-sans" 
+                    />
+                  </div>
+
+                  {/* Specifications List */}
+                  <div className="space-y-2">
+                    <label className="text-[8px] text-zinc-400 uppercase font-bold block">TECHNICAL SPECIFICATIONS</label>
+                    <div className="flex gap-2">
+                      <input 
+                        type="text" 
+                        placeholder="e.g. 100% HEAVYWEIGHT COMBED COTTON (400GSM)"
+                        value={newSpecInput}
+                        onChange={(e) => setNewSpecInput(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            e.preventDefault();
+                            if (newSpecInput.trim()) {
+                              const specs = editingProduct.specs || [];
+                              setEditingProduct({ ...editingProduct, specs: [...specs, newSpecInput.trim().toUpperCase()] });
+                              setNewSpecInput('');
+                            }
+                          }
+                        }}
+                        className="flex-1 bg-zinc-50 border border-black/10 px-3 py-2 text-xs outline-none focus:border-black/40 uppercase" 
+                      />
+                      <button 
+                        type="button"
+                        onClick={() => {
+                          if (newSpecInput.trim()) {
+                            const specs = editingProduct.specs || [];
+                            setEditingProduct({ ...editingProduct, specs: [...specs, newSpecInput.trim().toUpperCase()] });
+                            setNewSpecInput('');
+                          }
+                        }}
+                        className="bg-zinc-100 hover:bg-zinc-200 text-black border border-black/10 px-4 py-2 text-xs font-bold uppercase tracking-widest cursor-pointer"
+                      >
+                        ADD SPEC
+                      </button>
+                    </div>
+                    {editingProduct.specs && editingProduct.specs.length > 0 && (
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {editingProduct.specs.map((spec, idx) => (
+                          <span 
+                            key={idx} 
+                            className="inline-flex items-center gap-1.5 bg-zinc-50 border border-black/10 px-2 py-1 text-[10px] font-mono font-bold text-zinc-600 uppercase"
+                          >
+                            <span>{spec}</span>
+                            <button 
+                              type="button"
+                              onClick={() => {
+                                const filtered = editingProduct.specs?.filter((_, i) => i !== idx);
+                                setEditingProduct({ ...editingProduct, specs: filtered });
+                              }}
+                              className="text-red-500 hover:text-red-700 text-xs font-bold cursor-pointer"
+                            >
+                              ×
+                            </button>
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="pt-2">
+                    <button 
+                      type="submit" 
+                      className="bg-black text-white hover:bg-accent transition-colors px-8 py-3 text-[10px] uppercase font-bold tracking-widest cursor-pointer"
+                      style={{ clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))' }}
+                    >
+                      {editingProduct.id ? 'COMMIT PRODUCT RECORD CHANGES' : 'CREATE NEW PRODUCT RECORD'}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+
             {/* Product Directory Management List */}
             <div className="border border-black/10 p-6 bg-white space-y-4">
               <h3 className="text-xs font-bold text-black border-b border-black/10 pb-2 flex items-center gap-2">
@@ -997,7 +1244,13 @@ export default function App() {
                         <td className="py-3 uppercase text-[10px] text-zinc-500">{p.category}</td>
                         <td className="py-3 font-bold">{formatNaira(p.price)}</td>
                         <td className="py-3 font-bold">{p.stock}</td>
-                        <td className="py-3 text-right">
+                        <td className="py-3 text-right space-x-3">
+                          <button 
+                            onClick={() => startEditProduct(p)} 
+                            className="text-accent hover:underline text-[10px] uppercase font-bold cursor-pointer"
+                          >
+                            EDIT
+                          </button>
                           <button 
                             onClick={() => {
                               if (confirm(`DELETE PROTOCOL FOR PRODUCT [${p.code}]?`)) {
