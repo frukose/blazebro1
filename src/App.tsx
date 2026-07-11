@@ -87,12 +87,12 @@ export default function App() {
   const [supabaseSyncMessage, setSupabaseSyncMessage] = useState<string | null>(null);
 
   // Navigation / Views
-  const [activeView, useStateView] = useState<'home' | 'shop' | 'admin'>('home');
+  const [activeView, useStateView] = useState<'home' | 'shop' | 'admin'>('admin');
   const setActiveView = (view: 'home' | 'shop' | 'admin') => {
     useStateView(view);
   };
   const [passcodeInput, setPasscodeInput] = useState('');
-  const [isAdminUnlocked, setIsAdminUnlocked] = useState(false);
+  const [isAdminUnlocked, setIsAdminUnlocked] = useState(true);
   const [adminError, setAdminError] = useState<string | null>(null);
   const [showPasscodeModal, setShowPasscodeModal] = useState(false);
   const [activeBottomPage, setActiveBottomPage] = useState<'bulk' | null>(null);
@@ -121,10 +121,6 @@ export default function App() {
     incrementViews();
     fetchSupabaseStatus();
 
-    // Reset hash and set active view to home on load to ensure we always start at the homepage
-    window.location.hash = '';
-    setActiveView('home');
-
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash === '#admin') {
@@ -135,6 +131,17 @@ export default function App() {
         setActiveView('home');
       }
     };
+
+    // Open admin panel by default or respect hash
+    const initialHash = window.location.hash;
+    if (initialHash === '#admin' || initialHash === '') {
+      window.location.hash = 'admin';
+      setActiveView('admin');
+      setIsAdminUnlocked(true);
+    } else {
+      handleHashChange();
+    }
+
     window.addEventListener('hashchange', handleHashChange);
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
