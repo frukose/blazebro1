@@ -1,0 +1,309 @@
+{
+  "products": [
+    {
+      "id": "prod-01",
+      "code": "BLZ-01",
+      "name": "COLD-WEATHER EXOSHELL",
+      "price": 185000,
+      "category": "JACKETS",
+      "stock": 5,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL",
+        "4XL"
+      ],
+      "description": "HIGH-ALTITUDE SHIELD CONSTRUCTED FROM MIL-SPEC REINFORCED MEMBRANE. ASYMMETRIC WEATHERPROOF ZIP CLOSURES, COLLAPSIBLE RADAR HOOD SYSTEM, AND MODULAR STRAPPING MATRIX FOR MAXIMUM MOBILITY CONSTRAINTS.",
+      "specs": [
+        "MIL-SPEC 3-LAYER EXOSHELL WATERPROOFING",
+        "ASYMMETRIC YKK AQUAGUARD ZIP MATRIX",
+        "COLLAPSIBLE RADAR-SHIELD HOOD CONSTRUCT",
+        "4-POINT ANCHOR TACTICAL STRAP SYSTEMS",
+        "COORDINATES // 6.4542° N, 3.3887° E LOGGED"
+      ],
+      "image": "IMAGE_BLZ_01"
+    },
+    {
+      "id": "prod-02",
+      "code": "BLZ-02",
+      "name": "THERMAL GRID HOOD",
+      "price": 85000,
+      "category": "HOODIES",
+      "stock": 12,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL",
+        "4XL"
+      ],
+      "description": "HEAVYWEIGHT 480GSM COTTON-GRID FLEECE FORMULATED FOR STATIC DEGREES. FEATURES AN INTEGRATED SCUBA-PROFILE FACE SHIELD, DEEP-CARGO FRONT VENTRAL HOUSING, AND COATED D-RING REINFORCEMENTS.",
+      "specs": [
+        "480GSM HEAVYWEIGHT COTTON MESH STRUCTURE",
+        "COLLAPSIBLE VENTILATED COMBAT FACE SHIELD",
+        "REINFORCED STEEL D-RING FASTENER SYSTEM",
+        "VENTRAL ENVELOPE UTILITY CARGO SYSTEM",
+        "WASH SPEC // REVERSE CYCLE COLD ONLY"
+      ],
+      "image": "IMAGE_BLZ_02"
+    },
+    {
+      "id": "prod-03",
+      "code": "BLZ-03",
+      "name": "UTILITY ARCHIVE CARGO",
+      "price": 115000,
+      "category": "PANTS",
+      "stock": 8,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL",
+        "4XL"
+      ],
+      "description": "STRUCTURAL MULTI-DIMENSIONAL TROUSERS IN HIGH-TENACITY NYLON RIPSTOP. DUAL OVERSIZED POCKET ARCHIVES WITH INTERIOR SUB-COMPARTMENTS AND RETRACTABLE ANKLE RESTRAINT HARDWARE.",
+      "specs": [
+        "HIGH-TENACITY 500D NYLON RIPSTOP BASE",
+        "6-POCKET RETICULATED ARCHIVE HARNESSING",
+        "STEEL ANKLE CINCH RESTRAINT ADJUSTERS",
+        "ERGO-JOINT KNEE BENDING ARTICULATION",
+        "REINFORCED CRUTCH SEAMS FOR EXTREME STRAIN"
+      ],
+      "image": "IMAGE_BLZ_03"
+    },
+    {
+      "id": "prod-04",
+      "code": "BLZ-04",
+      "name": "MODULAR PLATFORM BOOT",
+      "price": 240000,
+      "category": "FOOTWEAR",
+      "stock": 4,
+      "sizes": [
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ],
+      "description": "TACTICAL PLATFORM FOOT CONSTRUCT FEATURING CHISELED GEOMETRIC OUTSOLE ARMATURE. WRAP-AROUND BALLISTIC STRAPPING HARDWARE WITH STEEL COUPLING SYSTEMS AND VULCANIZED REINFORCED TOE-CAPS.",
+      "specs": [
+        "CHISELED GEOMETRIC HIGH-TRACTION MIDSOLE",
+        "1000D BALLISTIC NYLON & LEATHER HARNESS",
+        "VULCANIZED SHARP SHIELD TOE COATED PROTECTION",
+        "INDUSTRIAL QUICK-RELEASE COUPLER MECHANISMS",
+        "UNIT LOAD // MAXIMUM SHOCK COMPRESSION"
+      ],
+      "image": "IMAGE_BLZ_04"
+    }
+  ],
+  "settings": {
+    "whatsappNumber": "2348031234567",
+    "latitude": "6.4542",
+    "longitude": "3.3887",
+    "tagline": "BLAZEBRO // HIGH-PERFORMANCE BRUTALIST CONSTRUCTS FOR URBAN OUTPOSTS.",
+    "adminPasscode": "1337",
+    "allowAiAdvisor": false,
+    "storeDiscount": 0
+  },
+  "stats": {
+    "views": 169,
+    "whatsappClicks": 25,
+    "potentialRevenue": 4730000
+  },
+  "orders": [
+    {
+      "id": "BLZ-ORD-752295",
+      "customerName": "ghg",
+      "items": [
+        {
+          "productId": "prod-04",
+          "code": "BLZ-04",
+          "name": "MODULAR PLATFORM BOOT",
+          "size": "45",
+          "quantity": 1,
+          "price": 240000
+        }
+      ],
+      "total": 240000,
+      "status": "PENDING_WHATSAPP",
+      "timestamp": "2026-07-08T13:19:30.146Z"
+    },
+    {
+      "id": "BLZ-ORD-755731",
+      "customerName": "ghg",
+      "items": [
+        {
+          "productId": "prod-04",
+          "code": "BLZ-04",
+          "name": "MODULAR PLATFORM BOOT",
+          "size": "45",
+          "quantity": 1,
+          "price": 240000
+        }
+      ],
+      "total": 240000,
+      "status": "PENDING_WHATSAPP",
+      "timestamp": "2026-07-08T13:19:30.144Z"
+    },
+    {
+      "id": "BLZ-ORD-760360",
+      "customerName": "ghg",
+      "items": [
+        {
+          "productId": "prod-04",
+          "code": "BLZ-04",
+          "name": "MODULAR PLATFORM BOOT",
+          "size": "45",
+          "quantity": 1,
+          "price": 240000
+        }
+      ],
+      "total": 240000,
+      "status": "PENDING_WHATSAPP",
+      "timestamp": "2026-07-08T13:19:30.143Z"
+    },
+    {
+      "id": "BLZ-ORD-753580",
+      "customerName": "ghg",
+      "items": [
+        {
+          "productId": "prod-04",
+          "code": "BLZ-04",
+          "name": "MODULAR PLATFORM BOOT",
+          "size": "45",
+          "quantity": 1,
+          "price": 240000
+        }
+      ],
+      "total": 240000,
+      "status": "PENDING_WHATSAPP",
+      "timestamp": "2026-07-08T13:19:30.134Z"
+    },
+    {
+      "id": "BLZ-ORD-751091",
+      "customerName": "ghg",
+      "items": [
+        {
+          "productId": "prod-04",
+          "code": "BLZ-04",
+          "name": "MODULAR PLATFORM BOOT",
+          "size": "45",
+          "quantity": 1,
+          "price": 240000
+        }
+      ],
+      "total": 240000,
+      "status": "PENDING_WHATSAPP",
+      "timestamp": "2026-07-08T13:19:30.133Z"
+    },
+    {
+      "id": "BLZ-ORD-750885",
+      "customerName": "ghg",
+      "items": [
+        {
+          "productId": "prod-04",
+          "code": "BLZ-04",
+          "name": "MODULAR PLATFORM BOOT",
+          "size": "45",
+          "quantity": 1,
+          "price": 240000
+        }
+      ],
+      "total": 240000,
+      "status": "PENDING_WHATSAPP",
+      "timestamp": "2026-07-08T13:19:30.132Z"
+    },
+    {
+      "id": "BLZ-ORD-749775",
+      "customerName": "ghg",
+      "items": [
+        {
+          "productId": "prod-04",
+          "code": "BLZ-04",
+          "name": "MODULAR PLATFORM BOOT",
+          "size": "45",
+          "quantity": 1,
+          "price": 240000
+        }
+      ],
+      "total": 240000,
+      "status": "PENDING_WHATSAPP",
+      "timestamp": "2026-07-08T13:19:30.131Z"
+    },
+    {
+      "id": "BLZ-ORD-757798",
+      "customerName": "ghg",
+      "items": [
+        {
+          "productId": "prod-04",
+          "code": "BLZ-04",
+          "name": "MODULAR PLATFORM BOOT",
+          "size": "45",
+          "quantity": 1,
+          "price": 240000
+        }
+      ],
+      "total": 240000,
+      "status": "PENDING_WHATSAPP",
+      "timestamp": "2026-07-08T13:19:30.129Z"
+    },
+    {
+      "id": "BLZ-ORD-770449",
+      "customerName": "nnn",
+      "items": [
+        {
+          "productId": "prod-04",
+          "code": "BLZ-04",
+          "name": "MODULAR PLATFORM BOOT",
+          "size": "45",
+          "quantity": 1,
+          "price": 240000
+        }
+      ],
+      "total": 240000,
+      "status": "PENDING_WHATSAPP",
+      "timestamp": "2026-07-08T13:19:29.624Z"
+    },
+    {
+      "id": "BLZ-ORD-752844",
+      "customerName": "ghg",
+      "items": [
+        {
+          "productId": "prod-04",
+          "code": "BLZ-04",
+          "name": "MODULAR PLATFORM BOOT",
+          "size": "45",
+          "quantity": 1,
+          "price": 240000
+        }
+      ],
+      "total": 240000,
+      "status": "PENDING_WHATSAPP",
+      "timestamp": "2026-07-08T13:19:29.527Z"
+    },
+    {
+      "id": "BLZ-ORD-709560",
+      "customerName": "ysiy",
+      "items": [
+        {
+          "productId": "prod-02",
+          "code": "BLZ-02",
+          "name": "THERMAL GRID HOOD",
+          "size": "4XL",
+          "quantity": 1,
+          "price": 85000
+        }
+      ],
+      "total": 85000,
+      "status": "PENDING_WHATSAPP",
+      "timestamp": "2026-07-08T12:11:49.136Z"
+    }
+  ]
+}

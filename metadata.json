@@ -1,0 +1,6 @@
+{
+  "name": "BlazeBro",
+  "description": "High-fashion, technical brutalist e-commerce label featuring industrial-grade streetwear, cybernetic silhouettes, and custom modular gear.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
